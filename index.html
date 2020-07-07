@@ -13,11 +13,11 @@
     <section class="content">
         <div class="left">
             <img src="images/yellow.jpg" alt="" class="yellow anim">
-            <p>Hello</p>
-            <img src="images/squiggly.svg" alt="" class="squig">
+            <p class="anim">Hello</p>
+            <img src="images/squiggly.svg" alt="" class="squig anim">
         </div>
         <div class="right">
-            <div>
+            <div class="anim">
                 <h2>Get Yellow</h2>
                 <p>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata
                     corpora
@@ -31,19 +31,25 @@
     </section>
 
     <script type="text/javascript">
-        const images = document.querySelector('.anim')
+        const images = document.querySelectorAll('.anim')
 
         observer = new IntersectionObserver((entries) => {
             console.log(entries)
-            if (entries[0].intersectionRatio > 0) {
-                entries[0].target.style.animation = `anim1 2s forwards ease-out`;
-            }
-            else {
-                entries[0].target.style.animation = `none`
-            }
+
+            entries.forEach(entry => {
+                if (entry.intersectionRatio > 0) {
+                    entry.target.style.animation = `anim1 2s forwards ease-out`;
+                }
+                else {
+                    entry.target.style.animation = `none`
+                }
+            })
         })
 
-        observer.observe(images)
+        images.forEach(image => {
+            observer.observe(image)
+        })
+
 
     </script>
 </body>
