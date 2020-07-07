@@ -12,12 +12,12 @@
     <section></section>
     <section class="content">
         <div class="left">
-            <img src="images/yellow.jpg" alt="" class="yellow anim">
-            <p class="anim">Hello</p>
-            <img src="images/squiggly.svg" alt="" class="squig anim">
+            <img src="images/yellow.jpg" alt="" class="yellow anim" data-delay="0s">
+            <p class="anim" data-delay=".5s">Hello</p>
+            <img src="images/squiggly.svg" alt="" class="squig anim" data-delay=".7s">
         </div>
         <div class="right">
-            <div class="anim">
+            <div class="anim" data-delay="1s">
                 <h2>Get Yellow</h2>
                 <p>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata
                     corpora
@@ -38,10 +38,10 @@
 
             entries.forEach(entry => {
                 if (entry.intersectionRatio > 0) {
-                    entry.target.style.animation = `anim1 2s forwards ease-out`;
+                    entry.target.style.animation = `anim1 2s ${entry.target.dataset.delay} forwards ease-out`;
                 }
                 else {
-                    entry.target.style.animation = `none`
+                    entry.target.style.animation = 'none';
                 }
             })
         })

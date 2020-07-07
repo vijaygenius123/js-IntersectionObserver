@@ -64,6 +64,10 @@ section {
   line-height: 1.6;
 }
 
+.content .anim {
+  opacity: 0;
+}
+
 @-webkit-keyframes anim1 {
   from {
     -webkit-transform: translateY(-100px);
